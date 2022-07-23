@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.5
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,13 +8,12 @@ dataSources:
     source:
       address: "0xa567349bdd3d4f2c3e25f65745a020162c202ef2"
       abi: NotaryShot
+      startBlock: 31025046
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - Approval
-        - ApprovalForAll
         - ChainlinkCancelled
         - ChainlinkFulfilled
         - ChainlinkRequested
@@ -26,10 +25,6 @@ dataSources:
         - name: NotaryShot
           file: ./abis/NotaryShot.json
       eventHandlers:
-        - event: Approval(indexed address,indexed address,indexed uint256)
-          handler: handleApproval
-        - event: ApprovalForAll(indexed address,indexed address,bool)
-          handler: handleApprovalForAll
         - event: ChainlinkCancelled(indexed bytes32)
           handler: handleChainlinkCancelled
         - event: ChainlinkFulfilled(indexed bytes32)

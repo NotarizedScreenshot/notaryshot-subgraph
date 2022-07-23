@@ -1,6 +1,6 @@
-type ExampleEntity @entity {
-  id: ID!
-  count: BigInt!
-  owner: Bytes! # address
-  approved: Bytes! # address
+type NotarizedScreenshot @entity {
+    id: ID!
+    owner: Bytes! # address
+    metadataCID: String,
+    uri: String
 }
